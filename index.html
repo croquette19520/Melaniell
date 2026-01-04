@@ -161,16 +161,14 @@
     }
 
     .term {
-      background-color: #191919;
-      border-left: 5px solid #ff6699;
-      padding: 15px 20px;
-      margin-bottom: 20px;
-      text-align: left;
-      border-radius: 8px;
-    }
+      background-color: transparent; /* 外層不畫框 */
+      border-left: none;
+      padding: 0;
 
-    .term strong {
-      color: #ff99cc;
+     display: flex;
+     gap: 16px;
+     align-items: stretch; /* 讓兩邊等高 */
+     margin-bottom: 24px;
     }
 
     @media (max-width: 768px) {
@@ -190,6 +188,47 @@
       .card p, .terms p, .intro p {
         font-size: 14px;
       }
+    }
+
+    .term {
+      display: flex;
+      gap: 16px;
+      align-items: center; /* 垂直置中 */
+    }
+    .term-title {
+      min-width: 180px;
+      min-height: 80px;
+
+      display: flex;            
+      align-items: center;      /* 垂直置中 */
+      justify-content: center;  /* 水平也一起置中 */
+
+      background-color: #1a1a1a;
+      border-left: 5px solid #ff6699;   /* 左側粉色 */
+      border-right: 5px solid #ff6699;  /* 右側粉色 */
+      padding: 12px 20px;
+
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff99cc;
+      white-space: nowrap;
+
+      border-radius: 10px 10px 10px 10px;
+    }
+    .term-content {
+      flex: 1;
+      min-height: 80px; /* 可自行調整 */
+      display: flex;          /* 關鍵 */
+      align-items: center;    /* 垂直置中文字 */
+      text-align: left;       /* 換行時靠左 */
+
+      background-color: #191919;
+      padding: 18px 32px;
+
+      font-size: 15px;
+      line-height: 1.8;
+
+      border-radius: 10px 10px 10px 10px;
     }
 
     /* 🔔 彈窗樣式 */
@@ -309,29 +348,50 @@
   <section id="factions" class="terms">
     <h2 class="section-title">地方勢力</h2>
     <div class="term">
-      <p><strong>亞伯那城邦：</strong> 十年前進行人體改造計劃的據點，現今部署梅拉涅爾的總指揮處，屬於人類最高權力現政府。</p>
+      <div class="term-title">亞伯那城邦</div>
+      <div class="term-content">
+        十年前進行人體改造計劃的據點，現今部署梅拉涅爾的總指揮處，屬於人類最高權力現政府。
+      </div>
     </div>
     <div class="term">
-      <p><strong>法堤瓦教會：</strong> 收容被高維生物寄生的傀儡，為他們縫補、治療因被侵蝕而突變的肉身，另一方面也為梅拉涅爾進行後續戰鬥的收尾作業，修補戰線和回收晶叢。</p>
+      <div class="term-title">法堤瓦教會</div>
+      <div class="term-content">
+        收容被高維生物寄生的傀儡，為他們縫補、治療因被侵蝕而突變的肉身，另一方面也為梅拉涅爾進行後續戰鬥的收尾作業，修補戰線和回收晶叢。
+      </div>
     </div>
     <div class="term">
-      <p><strong>銀都：</strong> 百姓收容所，建築物如尚未遭到異地生物入侵的模樣，梅拉涅爾也是從收容所裡提拔而出的合格受試者。</p>
+      <div class="term-title">銀都</div>
+      <div class="term-content">
+        百姓收容所，建築物如尚未遭到異地生物入侵的模樣，梅拉涅爾也是從收容所裡提拔而出的合格受試者。
+      </div>
     </div>
   </section>
 
   <section id="terms" class="terms">
     <h2 class="section-title">關鍵名詞</h2>
     <div class="term">
-      <p><strong>維度裂縫：</strong> 不明原因降臨的異界縫口，多數於黃昏時出現，使許多異地生物穿梭而來。以人類時間計算，縫口單次存在時間為二十五分鐘，能夠一次出現多個不同維度的裂縫。</p>
+      <div class="term-title">維度裂縫：</div>
+      <div class="term-content">
+        不明原因降臨的異界縫口，多數於黃昏時出現，使許多異地生物穿梭而來。以人類時間計算，縫口單次存在時間為二十五分鐘，能夠一次出現多個不同維度的裂縫。
+      </div>
     </div>
     <div class="term">
-      <p><strong>高維晶叢：</strong> 隨著維度裂縫出現而蔓延在大地的瑩粉晶叢。源於高維裂縫空氣裡的高濃度未知粒子與大地結合產生的具象能量。</p>
+      <div class="term-title">高維晶叢：</div>
+      <div class="term-content">
+        隨著維度裂縫出現而蔓延在大地的瑩粉晶叢。源於高維裂縫空氣裡的高濃度未知粒子與大地結合產生的具象能量。
+      </div>
     </div>
     <div class="term">
-      <p><strong>異地生物：</strong> 來自維度裂縫的生物，百姓口中所謂的「災厄」。因維度不同而有差異外觀的怪物，比地球維度更高的災厄能夠侵蝕、寄生人類；比地球維度低的災厄則會試圖殺戮人類進食生存，多數災厄的速度和力量高於人類三至五倍。</p>
+      <div class="term-title">異地生物：</div>
+      <div class="term-content">
+        來自維度裂縫的生物，百姓口中所謂的「災厄」。因維度不同而有差異外觀的怪物，比地球維度更高的災厄能夠侵蝕、寄生人類；比地球維度低的災厄則會試圖殺戮人類進食生存，多數災厄的速度和力量高於人類三至五倍。
+      </div>
     </div>
     <div class="term">
-      <p><strong>人體改造計劃：</strong> 由代號「永恆」發起，並組成十人團隊研究晶叢，萃取能量，尋找自願受試者；經過無數實驗得出能夠成為梅拉涅爾的人體數據和最佳的能量使用方法。實驗建立於生命犧牲之上，無論人類和動物。</p>
+      <div class="term-title">人體改造計劃：</div>
+      <div class="term-content">
+        由代號「永恆」發起，並組成十人團隊研究晶叢，萃取能量，尋找自願受試者；經過無數實驗得出能夠成為梅拉涅爾的人體數據和最佳的能量使用方法。實驗建立於生命犧牲之上，無論人類和動物。
+      </div>
     </div>
 
   </section>
@@ -368,6 +428,7 @@
         <img src="https://raw.githubusercontent.com/croquette19520/Melaniell/main/images/baige038.PNG" alt="代號:白歌">
         <h3>代號:白歌</h3>
         <p>不能以媒介進行輸出，利用觸碰來進行精神解析與控制，也可以使對象立即進入幻境或夢境。</p>
+      </div>
     </div>
   </section>
 
