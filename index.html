@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>梅拉涅爾｜柚家世界觀介紹</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #1a1a1a;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #ff99cc;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero-section {
+      padding: 80px 20px 40px;
+      background: linear-gradient(180deg, #1a1a1a, #0e0e0e);
+    }
+
+    .hero-section h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      color: #ff5588;
+    }
+
+    .tagline {
+      font-size: 20px;
+      color: #ccc;
+    }
+
+    .download-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background-color: #ff3366;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 18px;
+      transition: background 0.3s ease;
+    }
+
+    .download-button:hover {
+      background-color: #e60055;
+    }
+
+    .intro, .terms, .characters {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .intro img {
+      width: 80%;
+      max-width: 600px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 85, 136, 0.3);
+      margin-bottom: 20px;
+    }
+
+   .logo {
+     box-shadow: none !important;
+    }
+
+    .intro p {
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .terms p {
+      font-size: 16px;
+      line-height: 1.8;
+      text-align: left;
+    }
+
+    #world p {
+      text-align: center;
+
+    }
+    #world p {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      color: #ff6699;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .character-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .character-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .character-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      border-radius: 16px;
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255, 85, 136, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+      color: #ff99cc;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .term {
+      background-color: #191919;
+      border-left: 5px solid #ff6699;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      text-align: left;
+      border-radius: 8px;
+    }
+
+    .term strong {
+      color: #ff99cc;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 100%;
+        max-width: 90%;
+      }
+
+      .hero-section h1 {
+        font-size: 36px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .card p, .terms p, .intro p {
+        font-size: 14px;
+      }
+    }
+
+    /* 🔔 彈窗樣式 */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background-color: #1a1a1a;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 90%;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(255, 85, 136, 0.3);
+      position: relative;
+    }
+
+    .popup-content h2 {
+      color: #ff99cc;
+      margin-bottom: 10px;
+    }
+
+    .popup-content p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #eee;
+    }
+
+    .popup-link {
+      display: inline-block;
+      background-color: #ff3366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .popup-link:hover {
+      background-color: #e60055;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .social {
+      padding: 50px 0;
+      background: #0a0a0a;
+    }
+
+    .social h2 {
+      font-size: 32px;
+      color: #ff6699; /* 改成粉紅色 */
+      margin-bottom: 20px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+    }
+
+    .social-icons img {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#world">世界觀</a>
+    <a href="#factions">地方勢力</a>
+    <a href="#terms">關鍵名詞</a>
+    <a href="#characters">角色介紹</a>
+  </nav>
+
+  <header class="hero-section">
+    <h1>梅拉涅爾</h1>
+    <p class="tagline">進入亞伯納城邦，守護人類的故鄉</p>
+    <a href="javascript:void(0)" class="download-button" onclick="showPopup()">立即安裝</a>
+  </header>
+
+  <section class="intro">
+    <img src="images/temporary replacement.PNG" alt="logo" class="logo" style="width: 150px;">
+    <p>請站在人類一方，</p>
+    <p>與梅拉涅爾並肩。</p>
+  </section>
+
+  <section id="world" class="terms">
+    <h2 class="section-title">世界觀介紹</h2>
+    <p>
+      來自不同維度的大門被開啟，人類的故鄉遭受異地生物侵蝕，大地凝出一層層不屬於藍色故鄉的螢粉晶叢，人類就此從頂層狩獵者淪落為獵物。為了生存，一部分人群開始崇拜高維生物，視牠們為神明，血祭與供奉，最終淪落成牠們的寄生載體，失去意識和生命的傀儡撕裂更多無辜百姓，鮮血浸染大地，土地不再乾淨。另一部分的人不願信奉假神，開始進行人體改造計劃，他們分析地表螢粉晶礦，無數次嘗試萃取其中源於高維的能量，並注入受試者體內，最終異能誕生，倖存者視異能者為救世主，稱呼他們為「梅拉涅爾」，自古語的守護者。
+    </p>
+  </section>
+
+  <section id="factions" class="terms">
+    <h2 class="section-title">地方勢力</h2>
+    <div class="term">
+      <p><strong>亞伯那城邦：</strong> 十年前進行人體改造計劃的據點，現今部署梅拉涅爾的總指揮處，屬於人類最高權力現政府。</p>
+    </div>
+    <div class="term">
+      <p><strong>法堤瓦教會：</strong> 收容被高維生物寄生的傀儡，為他們縫補、治療因被侵蝕而突變的肉身，另一方面也為梅拉涅爾進行後續戰鬥的收尾作業，修補戰線和回收晶叢。</p>
+    </div>
+    <div class="term">
+      <p><strong>銀都：</strong> 百姓收容所，建築物如尚未遭到異地生物入侵的模樣，梅拉涅爾也是從收容所裡提拔而出的合格受試者。</p>
+    </div>
+  </section>
+
+  <section id="terms" class="terms">
+    <h2 class="section-title">關鍵名詞</h2>
+    <div class="term">
+      <p><strong>維度裂縫：</strong> 不明原因降臨的異界縫口，多數於黃昏時出現，使許多異地生物穿梭而來。以人類時間計算，縫口單次存在時間為二十五分鐘，能夠一次出現多個不同維度的裂縫。</p>
+    </div>
+    <div class="term">
+      <p><strong>高維晶叢：</strong> 隨著維度裂縫出現而蔓延在大地的瑩粉晶叢。源於高維裂縫空氣裡的高濃度未知粒子與大地結合產生的具象能量。</p>
+    </div>
+    <div class="term">
+      <p><strong>異地生物：</strong> 來自維度裂縫的生物，百姓口中所謂的「災厄」。因維度不同而有差異外觀的怪物，比地球維度更高的災厄能夠侵蝕、寄生人類；比地球維度低的災厄則會試圖殺戮人類進食生存，多數災厄的速度和力量高於人類三至五倍。</p>
+    </div>
+    <div class="term">
+      <p><strong>人體改造計劃：</strong> 由代號「永恆」發起，並組成十人團隊研究晶叢，萃取能量，尋找自願受試者；經過無數實驗得出能夠成為梅拉涅爾的人體數據和最佳的能量使用方法。實驗建立於生命犧牲之上，無論人類和動物。</p>
+    </div>
+
+  </section>
+
+  <section id="characters" class="characters">
+    <h2 class="section-title">梅拉涅爾</h2>
+    <div class="character-grid">
+      <div class="card">
+        <img src="images/li012.PNG" alt="代號:里">
+        <h3>代號:里</h3>
+        <p>無須媒介輸出，擅長運用水三態。精神力極高，能長時間無副作用使用異能，力量上的控制與敏捷度有待訓練。</p>
+      </div>
+      <div class="card">
+        <img src="images/noah008.PNG" alt="代號:諾亞">
+        <h3>代號:諾亞</h3>
+        <p>須以影子為媒介，能夠製造空間裂隙躲藏，並從任意視線範圍裡之影中瞬間移動。個體之力量與耐力表現佳，利於暗殺。</p>
+      </div>
+      <div class="card">
+        <img src="images/lu020.PNG" alt="代號:律">
+        <h3>代號:律</h3>
+        <p>以聲音為媒介，利用音波之頻率進行近距離重擊。缺乏感知能力，多以敏捷身手彌補問題。需注意精神力極限，該個體超出負荷時會出現意識污染現象。</p>
+      </div>
+      <div class="card">
+        <img src="images/heiyao037.PNG" alt="代號:黑曜">
+        <h3>代號:黑曜</h3>
+        <p>與專用重劍共鳴，藉由與武器之深度連結來發揮數倍力量。該個體之耐力高，能夠長時間以專用武器作戰。</p>
+      </div>
+      <div class="card">
+        <img src="images/xiao027.PNG" alt="代號:曉">
+        <h3>代號:曉</h3>
+        <p>以雙刃為媒介，除物理性質外，碰到的任意事物都將無效化。感知極高，善於預判。個體耐力較弱，不適合持久戰。</p>
+      </div>
+      <div class="card">
+        <img src="images/baige038.PNG" alt="代號:白歌">
+        <h3>代號:白歌</h3>
+        <p>不能以媒介進行輸出，利用觸碰來進行精神解析與控制，也可以使對象立即進入幻境或夢境。</p>
+    </div>
+  </section>
+
+  <!-- 🔔 彈出視窗區域 -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>前往安裝頁面</h2>
+      <p>請點擊下方連結進行安裝：</p>
+      <a href="https://sharnifish.github.io/nottouch/" target="_blank" class="popup-link">跳轉安裝</a>
+    </div>
+  </div>
+
+  <!-- 📜 彈窗腳本 -->
+  <script>
+    function showPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+
+  <section class="social">
+    <h2 class="section-title">社群連結</h2>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook"></a>
+      <a href="https://instagram.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"></a>
+      <a href="https://youtube.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 柚豊私人世界觀 | 版權所有
+  </footer>
+
+</body>
+</html>
